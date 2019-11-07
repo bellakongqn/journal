@@ -19,4 +19,9 @@ export default {
 </script>
 
 <style>
+*{
+  padding: 0;
+  margin: 0;
+ font-family: "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
 </style>
