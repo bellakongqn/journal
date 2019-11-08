@@ -5,13 +5,14 @@
             <div class="formTitle">登录</div>
             <Input v-model="userName" type="text" label="用户名或Email"/>
             <Input v-model="password" type="password" label="密码"/>
-            <Button text="登录" size="small"/>
+            <Button text="登录" size="small" @click="loginIn"/>
             <div class="splitLine"/>
             <Button text="注册" @click="toRegister"/>
         </div>
     </div>
 </template>
 <script>
+
 import Input from '../../components/Input/Input.vue'
 import Button from '../../components/Button/Button.vue'
 export default {
@@ -27,6 +28,10 @@ export default {
         },
         toRegister(){   
             this.$router.push('/register')
+        },
+        loginIn(){
+            this.$store.commit('login/loginIn')
+            this.$router.push('/home')
         }
     },
     components:{

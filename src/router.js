@@ -29,13 +29,4 @@ var router =  new VueRouter({
 })
 
 
-// router.beforeEach((to, from, next) => {
-//     let isLogin = false;
-//     if (!isLogin && to.path !== '/login') {
-//       next('/login');
-//     } else {
-//       next();
-//     }
-// })
-
 export default router;
