@@ -2,12 +2,13 @@
     <div class="loginContainer">
         dwvjhfi
         <div class="formContainer">
-            <div class="formTitle">登录</div>
-            <Input v-model="userName" type="text" label="用户名或Email"/>
+            <div class="formTitle">注册</div>
+            <Input v-model="userName" type="text" label="Email"/>
             <Input v-model="password" type="password" label="密码"/>
-            <Button text="登录" size="small"/>
+            <Input v-model="rePassword" type="password" label="确认密码"/>
+            <Button text="注册" size="small"/>
             <div class="splitLine"/>
-            <Button text="注册" @click="toRegister"/>
+            <Button text="登录" @click="toLogin"/>
         </div>
     </div>
 </template>
@@ -19,14 +20,15 @@ export default {
         return{
             userName:'',
             password:'',
+            rePassword:'',
         }
     },
     methods:{
         handleSubmit(){
-            alert(this.lovingVue)
+            
         },
-        toRegister(){   
-            this.$router.push('/register')
+        toLogin(){
+            this.$router.push('/login')
         }
     },
     components:{
@@ -37,6 +39,6 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-@import url('./login.less');
+@import url('./register.less');
 
 </style>

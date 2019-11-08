@@ -1,6 +1,6 @@
 <template>
     <div>
-        <a :class="size==='small'?'btnGreen':'btnWhite'">{{text}}</a>
+        <a :class="size==='small'?'btnGreen':'btnWhite'" @click="callParent">{{text}}</a>
     </div>
 </template>
 <script>
@@ -9,6 +9,11 @@ export default {
     props:{
         text:String,
         size:String,
+    },
+    methods:{
+        callParent(){
+            this.$emit('click')
+        }
     }
 }
 </script>

@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 import home from "./views/home/home.vue";
 import login from './views/login/login.vue'
 import about from './views/about/about.vue'
+import register from './views/register/register.vue'
 
 
 
@@ -14,6 +15,7 @@ Vue.use(VueRouter);
 const routes = [
     { path: '/', redirect: '/home' },
     { path: "/login", component: login },
+    { path: '/register', component:register },
     { path:"/home", component: home, meta: { name: '主页' } },
     { path:"/about", component: about, meta: { name: '关于'} }
 ]
@@ -21,17 +23,19 @@ const routes = [
 
 
 var router =  new VueRouter({
-    routes
+  mode: 'history',
+  // 不取hash路由格式
+  routes
 })
 
 
-router.beforeEach((to, from, next) => {
-    let isLogin = false;
-    if (!isLogin && to.path !== '/login') {
-      next('/login');
-    } else {
-      next();
-    }
-})
+// router.beforeEach((to, from, next) => {
+//     let isLogin = false;
+//     if (!isLogin && to.path !== '/login') {
+//       next('/login');
+//     } else {
+//       next();
+//     }
+// })
 
 export default router;
