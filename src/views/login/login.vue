@@ -5,14 +5,15 @@
             <div class="formTitle">登录</div>
             <Input v-model="userName" type="text" label="用户名或Email"/>
             <Input v-model="password" type="password" label="密码"/>
-            <a class="btnGreen">登录</a>
+            <Button text="登录" size="small"/>
             <div class="splitLine"/>
-            <a class="btnWhite">注册</a>
+            <Button text="注册"/>
         </div>
     </div>
 </template>
 <script>
 import Input from '../../components/Input/Input.vue'
+import Button from '../../components/Button/Button.vue'
 export default {
     data(){
         return{
@@ -27,6 +28,7 @@ export default {
     },
     components:{
         Input,
+        Button,
     }
 
 }
