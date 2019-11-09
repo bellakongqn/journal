@@ -1,4 +1,5 @@
 # journal
+LONG LIVE LOVE!
 
 ## Project setup
 ```
