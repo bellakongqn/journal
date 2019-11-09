@@ -4,22 +4,30 @@
       <input class="input" 
              :type="type"
              :value="value"
-             @change="$emit('input', $event.target.value)">
+             @blur="$emit('blur')"
+             @input="handleOnChange">
   </div>
 </template>
 
 <script>
 export default {
   name: "Input",
-  // model: {
-  //   prop: 'checked',
-  //   event: 'change'
-  // },
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
     value: String,
     type:String,
     label:String,
   },
+  methods: {
+    handleOnChange($event) {
+      // eslint-disable-next-line no-console
+      console.log('changed')
+      this.$emit('change', $event.target.value)
+    }
+  }
 };
 </script>
 <style lang="less" scoped>

@@ -1,6 +1,5 @@
 <template>
     <div class="loginContainer">
-        dwvjhfi
         <div class="formContainer">
             <div class="formTitle">登录</div>
             <Input v-model="userName" type="text" label="用户名或Email"/>
