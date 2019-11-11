@@ -3,8 +3,8 @@
       <p class="inputLabel">{{label}}</p>
       <input class="input" 
              :type="type"
-             autocomplete="off"
-             @focus="$emit('focus')"
+             :value="value"
+             @change="$emit('input', $event.target.value)"
             >
   </div>
 </template>
@@ -14,12 +14,13 @@ export default {
   name: "Input",
   
   props: {
-    // value: String,
     type:String,
     label:String,
   },
   methods: {
-    
+    handleOnChange($event) {
+      this.$emit('change', $event.target.value)
+    }
   }
 };
 </script>

@@ -25,9 +25,6 @@ export default {
         }
     },
     methods:{
-        handleSubmit(){
-            alert(this.lovingVue)
-        },
         toRegister(){   
             this.$router.push('/register')
         },
