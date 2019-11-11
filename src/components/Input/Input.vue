@@ -6,6 +6,7 @@
              :value="value"
              @change="$emit('input', $event.target.value)"
             >
+      <p class="warningText" v-if="warning!==''">{{warning}}</p>
   </div>
 </template>
 
@@ -16,6 +17,7 @@ export default {
   props: {
     type:String,
     label:String,
+    warning:String||'',
   },
   methods: {
     handleOnChange($event) {

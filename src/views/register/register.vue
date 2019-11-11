@@ -4,13 +4,16 @@
         <div class="formContainer">
             <div class="formTitle">注册</div>
             <form>
-                <Input v-model="userName" type="text" label="Email"/>
-                <Input v-model="password" type="password" label="密码"/>
+                <p v-show="errText!==''" class="errText">
+                    <img  src="../../img/warning.png" class="warningIcon"/>{{errText}}
+                </p>
+                <Input v-model="email" type="text" label="Email"/>
+                <Input v-model="password" type="password" label="密码" warning="密码至少6位"/>
                 <!-- 同步验证密码 -->
                 <!-- <Input v-model="rePassword" type="password" label="确认密码" @focus="isBlured = true" /> -->
                 <!-- <p v-if="isBlured && validatePassword()">{{validatePassword()}}</p> -->
-                <Input v-model="rePassword" type="password" label="确认密码" warning="密码至少6位"/>
-                <Button text="注册" size="small"/>
+                <Input v-model="rePassword" type="password" label="确认密码"/>
+                <Button text="注册" size="small" @click="toRegister" />
             </form>
             <div class="splitLine"/>
             <Button text="登录" @click="toLogin"/>
@@ -23,33 +26,32 @@ import Button from '../../components/Button/Button.vue'
 export default {
     data(){
         return{
-            userName:'',
+            email:'',
             password:'',
             rePassword:'',
-            isFocus: false
+            errText:'',
         }
     },
     watch: {
        
     },
     methods:{
-        handleSubmit(){
-            
+        toRegister(){
+            const  regEmail = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+            if(this.email===''|| !regEmail.test(this.email)){
+                this.errText = "邮箱格式不正确"
+            }else if(this.password===''||this.password.length<6){
+                this.errText = '请输入密码&密码至少6位'
+            }else if(this.password!==this.rePassword){
+                this.errText = '两次密码不一致,请确认'
+            }else{
+                this.$router.push('/login')
+            }
+
         },
         toLogin(){
             this.$router.push('/login')
         },
-        validatePassword() {
-            // 如果有错误，则返回错误信息
-            // 若没有错误，则返回空字符串
-            const rePassword = this.rePassword
-            if (rePassword) {
-                if (rePassword.length < 6) {
-                    return '密码至少6位'
-                } 
-                return false
-            }
-        }
     },
     components:{
         Input,
