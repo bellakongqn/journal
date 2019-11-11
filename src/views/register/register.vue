@@ -6,12 +6,14 @@
             <form>
                 <Input v-model="userName" type="text" label="Email"/>
                 <Input v-model="password" type="password" label="密码"/>
-                <Input v-model="rePassword" type="password" label="确认密码" @blur="isBlured = true"/>
-                <p v-if="isBlured && validatePassword()">{{validatePassword()}}</p>
+                <!-- 同步验证密码 -->
+                <!-- <Input v-model="rePassword" type="password" label="确认密码" @focus="isBlured = true" /> -->
+                <!-- <p v-if="isBlured && validatePassword()">{{validatePassword()}}</p> -->
+                <Input v-model="rePassword" type="password" label="确认密码" warning="密码至少6位"/>
                 <Button text="注册" size="small"/>
-                <div class="splitLine"/>
-                <Button text="登录" @click="toLogin"/>
             </form>
+            <div class="splitLine"/>
+            <Button text="登录" @click="toLogin"/>
         </div>
     </div>
 </template>
@@ -24,14 +26,11 @@ export default {
             userName:'',
             password:'',
             rePassword:'',
-            isBlured: false
+            isFocus: false
         }
     },
     watch: {
-        password() {
-            // eslint-disable-next-line no-console
-            console.log('password is', this.password)
-        }
+       
     },
     methods:{
         handleSubmit(){
@@ -46,13 +45,9 @@ export default {
             const rePassword = this.rePassword
             if (rePassword) {
                 if (rePassword.length < 6) {
-                    return '密码大于6'
-                } else if (rePassword.length < 8) {
-                    return '密码大于8'
-                }
+                    return '密码至少6位'
+                } 
                 return false
-            } else {
-                return '请输入密码'
             }
         }
     },

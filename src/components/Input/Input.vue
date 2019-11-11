@@ -3,30 +3,23 @@
       <p class="inputLabel">{{label}}</p>
       <input class="input" 
              :type="type"
-             :value="value"
-             @blur="$emit('blur')"
-             @input="handleOnChange">
+             autocomplete="off"
+             @focus="$emit('focus')"
+            >
   </div>
 </template>
 
 <script>
 export default {
   name: "Input",
-  model: {
-    prop: 'value',
-    event: 'change'
-  },
+  
   props: {
-    value: String,
+    // value: String,
     type:String,
     label:String,
   },
   methods: {
-    handleOnChange($event) {
-      // eslint-disable-next-line no-console
-      console.log('changed')
-      this.$emit('change', $event.target.value)
-    }
+    
   }
 };
 </script>
