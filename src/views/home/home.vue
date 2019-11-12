@@ -3,10 +3,11 @@
         <header class="headerContainer">
             <img  src="../../img/logo.jpg" class="logo" @click="toIndex"/>
             <div class="navContainer">
-                <router-link to="/diary">diary</router-link>
-                <router-link to="/memo">memo</router-link>
-                <router-link to="/diary">diary</router-link>
-                <router-link to="/memo">memo</router-link>
+                <router-link to="/diary">Diary</router-link>
+                <router-link to="/memo">Memo</router-link>
+                <router-link to="/diary">Anniversary</router-link>
+                <router-link to="/memo">War</router-link>
+                <router-link to="/memo">Moive</router-link>
             </div>
             <div class="personalContainer">
                 <img  src="../../img/avatar.png" class="avatar" @click="showCardDetail"/>
