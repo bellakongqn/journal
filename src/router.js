@@ -7,6 +7,7 @@ import about from './views/about/about.vue'
 import register from './views/register/register.vue'
 import diary from './views/diary/diary.vue'
 import memo from './views/memo/memo.vue'
+import index from './views/index/index.vue'
 
 
 Vue.use(VueRouter);
@@ -16,8 +17,11 @@ const routes = [
     { path: '/', redirect: '/home' },
     { path: "/login", component: login },
     { path: '/register', component:register },
-    { path:"/home", component: home, meta: { name: '主页' },
+    { path:"/home", component: home, 
+      redirect: '/index', 
+      meta: { name: '主页' },
       children:[
+        { path:'/index', component:index },
         { path:'/diary', component:diary }, // 日记
         { path:'/memo', component:memo },   // 备忘录
       ] },

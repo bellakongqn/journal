@@ -7,7 +7,7 @@
                 <Input v-model="password" type="password" label="密码"/>
                 <Button text="登录" size="small" @click="loginIn"/>
             </form>
-            <div class="splitLine"/>
+            <SplitLine />
             <Button text="注册" @click="toRegister"/>
             
         </div>
@@ -17,6 +17,7 @@
 
 import Input from '../../components/Input/Input.vue'
 import Button from '../../components/Button/Button.vue'
+import SplitLine from '../../components/SplitLine/SplitLine.vue'
 export default {
     data(){
         return{
@@ -36,6 +37,7 @@ export default {
     components:{
         Input,
         Button,
+        SplitLine,
     }
 
 }
