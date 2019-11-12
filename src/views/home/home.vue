@@ -29,16 +29,32 @@
 </template>
 <script>
 import SplitLine from '../../components/SplitLine/SplitLine.vue'
+import { mapState ,mapMutations} from 'vuex'
 export default {
     components:{
         SplitLine
     },
-    computed: {
-        showCard() {
-            return this.$store.state.login.showCard
-        }
+    // computed: {
+    //     showCard() {
+    //         return this.$store.state.login.showCard
+    //     }
+    // },
+    computed:{
+        ...mapState(
+            {
+            showCard:state=>state.login.showCard
+        }),
+        // ...mapGetters(
+        //     {oddNumber:'count/oddNumber'}
+        // )
     },
     methods:{
+        ...mapMutations({
+            showCardDetail:'login/showCardDetail',
+        }),
+        // ...mapActions(
+        //     {add:'count/add'}
+        // )
         loginOut(){
             this.$store.commit('login/loginOut')
             this.$router.push('/login')
@@ -46,9 +62,9 @@ export default {
         toIndex(){
             this.$router.push('/index')
         },
-        showCardDetail(){
-            this.$store.commit('login/showCardDetail');
-        }
+        // showCardDetail(){
+        //     this.$store.commit();
+        // }
     }
 }
 </script>
