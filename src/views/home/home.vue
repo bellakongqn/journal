@@ -33,9 +33,9 @@ export default {
     components:{
         SplitLine
     },
-    data(){
-        return{
-            showCard:false,
+    computed: {
+        showCard() {
+            return this.$store.state.login.showCard
         }
     },
     methods:{
@@ -47,7 +47,7 @@ export default {
             this.$router.push('/index')
         },
         showCardDetail(){
-            this.showCard = !this.showCard
+            this.$store.commit('login/showCardDetail');
         }
     }
 }

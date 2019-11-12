@@ -3,7 +3,6 @@
       <p class="inputLabel">{{label}}</p>
       <input class="input" 
              :type="type"
-             :value="value"
              @change="$emit('input', $event.target.value)"
             >
       <p class="warningText" v-if="warning!==''">{{warning}}</p>
