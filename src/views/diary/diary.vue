@@ -33,10 +33,19 @@
             </ul>
         </div>
         <div class="diaryDetaiil">
-            dvkjeutigergntkr udn4roegtkj n9df8tyjrvditoygddit
+            ewvjrhieu
+            <!-- <tinymce /> -->
         </div>
     </div>
 </template>
+<script>
+// import tinymce from '../../components/tinymce/tinymce.vue'
+export default {
+    components:{
+        // tinymce,
+    }
+}
+</script>
 <style lang="less" scoped>
 @import url('./diary.less');
 </style>
