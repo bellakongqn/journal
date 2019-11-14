@@ -3,6 +3,9 @@
         <div class="formContainer">
             <div class="formTitle">登录</div>
             <form>
+                <p v-show="errText!==''" class="errText">
+                    <img  src="../../img/warning.png" class="warningIcon"/>{{errText}}
+                </p>
                 <Input v-model="userName" type="text" label="用户名或Email"/>
                 <Input v-model="password" type="password" label="密码"/>
                 <Button text="登录" size="small" @click="loginIn"/>
@@ -23,6 +26,7 @@ export default {
         return{
             userName:'',
             password:'',
+            errText:'',
         }
     },
     methods:{
@@ -30,8 +34,14 @@ export default {
             this.$router.push('/register')
         },
         loginIn(){
-            this.$store.commit('login/loginIn')
-            this.$router.push('/home')
+            if(this.userName===''){
+                this.errText = "请输入用户名"
+            }else if(this.password===""){
+                this.errText = "请输入密码"
+            }else{
+                this.$store.commit('login/loginIn')
+                this.$router.push('/home') 
+            }
         }
     },
     components:{
