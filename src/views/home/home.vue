@@ -4,7 +4,7 @@
             <img  src="../../img/logo.jpg" class="logo" @click="toIndex"/>
             <div class="navContainer">
                 <router-link to="/diary">Diary</router-link>
-                <router-link to="/memo">Memo</router-link>
+                <router-link to="/memo">Memo{{cartProducts.length}}</router-link>
                 <router-link to="/diary">Anniversary</router-link>
                 <router-link to="/memo">War</router-link>
                 <router-link to="/memo">Moive</router-link>
@@ -30,7 +30,7 @@
 </template>
 <script>
 import SplitLine from '../../components/SplitLine/SplitLine.vue'
-import { mapState ,mapMutations} from 'vuex'
+import { mapState ,mapMutations,mapGetters} from 'vuex'
 export default {
     components:{
         SplitLine
@@ -45,9 +45,9 @@ export default {
             {
             showCard:state=>state.login.showCard
         }),
-        // ...mapGetters(
-        //     {oddNumber:'count/oddNumber'}
-        // )
+        ...mapGetters(
+            {cartProducts:'cart/cartProducts'}
+        )
     },
     methods:{
         ...mapMutations({

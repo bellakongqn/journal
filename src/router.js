@@ -5,7 +5,7 @@ import home from "./views/home/home.vue";
 import login from './views/login/login.vue'
 import about from './views/about/about.vue'
 import register from './views/register/register.vue'
-import diary from './views/mock.vue'
+import diary from './views/diary/diary.vue'
 import memo from './views/memo/memo.vue'
 import index from './views/index/index.vue'
 
