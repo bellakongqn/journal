@@ -3,6 +3,7 @@
     width: 60%;
     background: #fefefe;
     margin: 0 auto;
+    min-width: 950px;
     // background: red;
 }
 .headerContainer{
@@ -58,6 +59,19 @@ a{
     text-decoration: none;
     color: #858E9A;
     text-align: center;
+    position: relative;
+    .cartCount{
+        position: absolute;
+        right: -16px;
+        top: 4px;
+        border: 1px solid firebrick;
+        color: firebrick;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        font-size: 8px;
+        line-height: 16px;
+    }
 }
 .router-link-active {
     text-decoration: none;

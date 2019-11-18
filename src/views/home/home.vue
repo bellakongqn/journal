@@ -3,8 +3,8 @@
         <header class="headerContainer">
             <img  src="../../img/logo.jpg" class="logo" @click="toIndex"/>
             <div class="navContainer">
-                <router-link to="/diary">Diary</router-link>
-                <router-link to="/memo">Memo{{cartProducts.length}}</router-link>
+                <router-link to="/diary">商品</router-link>
+                <router-link to="/memo">购物车<span class="cartCount" v-if="cartProducts.length">{{cartProducts.length}}</span></router-link>
                 <router-link to="/diary">Anniversary</router-link>
                 <router-link to="/memo">War</router-link>
                 <router-link to="/memo">Moive</router-link>
