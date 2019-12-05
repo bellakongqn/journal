@@ -4,7 +4,7 @@ const Mock = require('mockjs')
 // 获取 mock.Random 对象
 const Random = Mock.Random;
 //使用mockjs模拟数据
-Mock.mock('/api/data', (req, res) => {//当post或get请求到/api/data路由时Mock会拦截请求并返回上面的数据
+Mock.mock('/api/data','get', (req, res) => {//当post或get请求到/api/data路由时Mock会拦截请求并返回上面的数据
     let list = [];
     for(let i = 0; i < 5; i++) {
         let listObject = {
@@ -18,4 +18,9 @@ Mock.mock('/api/data', (req, res) => {//当post或get请求到/api/data路由时
     return {
         data: list
     }
+})
+Mock.mock('/api/login',{
+    "userName": "@cname",
+    "userId": "@integer(10000,99999)",
+    "passward" : /[a-z][A-Z][0-9][a-z][A-Z][0-9][a-z][A-Z][0-9]/,
 })

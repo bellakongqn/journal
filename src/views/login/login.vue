@@ -39,7 +39,7 @@ export default {
             }else if(this.password===""){
                 this.errText = "请输入密码"
             }else{
-                this.$store.commit('login/loginIn')
+                this.$store.dispatch('login/loginIn')
                 this.$router.push('/home') 
             }
         }

@@ -14,7 +14,7 @@
                 <div class="test_triangle_border" v-show="showCard">
                     <div class="popup">
                         <span><em></em></span>
-                        <h1>汪大屁，早上好🐖</h1>
+                        <h1>{{personalInformation.userName}}，早上好🐖</h1>
                         <SplitLine class="splitLine"/>
                         <h2 @click="loginOut">退出登录</h2>
                     </div>
@@ -43,7 +43,8 @@ export default {
     computed:{
         ...mapState(
             {
-            showCard:state=>state.login.showCard
+            showCard:state=>state.login.showCard,
+            personalInformation:state=>state.login.personalInformation
         }),
         ...mapGetters(
             {cartProducts:'cart/cartProducts'}

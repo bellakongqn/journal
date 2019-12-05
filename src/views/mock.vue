@@ -9,7 +9,6 @@
     </div>
 </template>
 <script>
-import axios from 'axios'
 
 export default {
       data() {
@@ -18,7 +17,7 @@ export default {
         }
       },
       mounted:function() {
-        axios.get('/api/data').then(res => {//get()中的参数要与mock.js文件中的Mock.mock()配置的路由保持一致
+        this.$axios.get('/api/data').then(res => {//get()中的参数要与mock.js文件中的Mock.mock()配置的路由保持一致
           this.data = res.data.data;
         //   console.log(res.data);//在console中看到数据
         }).catch(() => {
