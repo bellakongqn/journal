@@ -10,7 +10,7 @@
                 :key="product.id">
                 <div :style="{backgroundImage: 'url('+product.src+')'}"  class="imgContainer"/>
                 <span>{{ product.title }}</span>
-                <span>{{ product.price |currency  }}</span>
+                <span>{{ product.price}}</span>
                 <button
                     class="buyBtn"
                     :disabled="!product.inventory"

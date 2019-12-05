@@ -7,9 +7,9 @@
       v-for="product in products"
       :key="product.id">
       <div :style="{backgroundImage: 'url('+product.src+')'}"  class="imgContainer"/>
-      {{ product.title }} - {{ product.price | currency }} x {{ product.quantity }}
+      {{ product.title }} - {{ product.price}} x {{ product.quantity }}
     </div>
-    <p>Total: {{ total | currency }}</p>
+    <p>Total: {{ total}}</p>
     <p><button :disabled="!products.length" @click="checkout(products)">Checkout</button></p>
     <p v-show="checkoutStatus">Checkout {{ checkoutStatus }}.</p>
   </div>
