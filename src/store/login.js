@@ -8,7 +8,7 @@ const state ={
 const actions  = {
     // 登录|登出
     loginIn(){
-        axios.get('/api/login').then(res => {//get()中的参数要与mock.js文件中的Mock.mock()配置的路由保持一致
+        return axios.get('/api/login').then(res => {//get()中的参数要与mock.js文件中的Mock.mock()配置的路由保持一致
             this.commit('login/setLoginInState',res.data)
           }).catch(() => {
             alert('wrong');
