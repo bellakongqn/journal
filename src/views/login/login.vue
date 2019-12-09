@@ -40,7 +40,13 @@ export default {
                 this.errText = "请输入密码"
             }else{
                 this.$store.dispatch('login/loginIn')
-                this.$router.push('/home') 
+                    .then(() => {
+                        this.$router.push('/home');
+                    })
+                    .catch((e) => {
+                        // error
+                    })
+                
             }
         }
     },
