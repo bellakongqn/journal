@@ -12,7 +12,7 @@ Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
   if (to.path !== '/login') {
-    if (store.state.login.token === '') {
+    if (JSON.stringify(store.state.login.personalInformation) === '{}') {
       next({
         path: '/login'
       })

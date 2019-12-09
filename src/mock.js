@@ -22,5 +22,4 @@ Mock.mock('/api/data','get', (req, res) => {//当post或get请求到/api/data路
 Mock.mock('/api/login',{
     "userName": "@cname",
     "userId": "@integer(10000,99999)",
-    "passward" : /[a-z][A-Z][0-9][a-z][A-Z][0-9][a-z][A-Z][0-9]/,
 })

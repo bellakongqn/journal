@@ -1,10 +1,8 @@
 import axios from 'axios'
 
 const state ={
-    isLogin:false,
-    token: localStorage.getItem('token') || '',
     showCard:false,
-    personalInformation:{},
+    personalInformation:JSON.parse(sessionStorage.getItem('user'))|| {},
 }
 
 const actions  = {
@@ -20,14 +18,12 @@ const actions  = {
 
 const mutations = {
     setLoginInState(state,payload){
+        sessionStorage.setItem('user', JSON.stringify(payload));
         state.personalInformation=payload;
-        state.isLogin = true;
-        localStorage.setItem('token', '摸鱼ing')
     },
     loginOut(state){
-        state.isLogin = false;
         state.personalInformation={};
-        localStorage.removeItem('token')
+        sessionStorage.removeItem('user');
         this.commit('login/initCardDetail')
     },
     // 详情card展示
