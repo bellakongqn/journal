@@ -19,13 +19,13 @@ const routes = [
     { path: '/register', component:register },
     { path:"/home", component: home, 
       redirect: '/index', 
-      meta: { name: '主页' },
+      meta: {requireAuth: true},
       children:[
-        { path:'/index', component:index },
-        { path:'/diary', component:diary }, // 日记
-        { path:'/memo', component:memo },   // 备忘录
+        { path:'/index', component:index ,meta: {requireAuth: true},},
+        { path:'/diary', component:diary ,meta: {requireAuth: true}, }, // 日记
+        { path:'/memo', component:memo ,meta: {requireAuth: true},},   // 备忘录
       ] },
-    { path:"/about", component: about, meta: { name: '关于'} },
+    { path:"/about", component: about, meta: {requireAuth: true}, },
 ]
 
 
