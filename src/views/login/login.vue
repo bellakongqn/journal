@@ -39,12 +39,13 @@ export default {
             }else if(this.password===""){
                 this.errText = "请输入密码"
             }else{
+                // 异步操作 不使用then会导致第一次无法实现跳转
                 this.$store.dispatch('login/loginIn')
                     .then(() => {
                         this.$router.push('/home');
                     })
                     .catch((e) => {
-                        // error
+                        alert(e)
                     })
                 
             }
