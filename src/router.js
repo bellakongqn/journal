@@ -8,6 +8,7 @@ import register from './views/register/register.vue'
 import diary from './views/diary/diary.vue'
 import memo from './views/memo/memo.vue'
 import index from './views/index/index.vue'
+import Todo from './views/todo/todo.vue'
 
 
 Vue.use(VueRouter);
@@ -24,6 +25,7 @@ const routes = [
         { path:'/index', component:index ,meta: {requireAuth: true},},
         { path:'/diary', component:diary ,meta: {requireAuth: true}, }, // 日记
         { path:'/memo', component:memo ,meta: {requireAuth: true},},   // 备忘录
+        { path:'/todo',  component:Todo ,meta: {requireAuth: true},}
       ] },
     { path:"/about", component: about, meta: {requireAuth: true}, },
 ]

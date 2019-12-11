@@ -5,7 +5,7 @@
             <div class="navContainer">
                 <router-link to="/diary">商品</router-link>
                 <router-link to="/memo">购物车<span class="cartCount" v-if="cartProducts.length">{{cartProducts.length}}</span></router-link>
-                <router-link to="/diary">Anniversary</router-link>
+                <router-link to="/todo">TODO</router-link>
                 <router-link to="/memo">War</router-link>
                 <router-link to="/memo">Moive</router-link>
             </div>
@@ -54,9 +54,6 @@ export default {
         ...mapMutations({
             showCardDetail:'login/showCardDetail',
         }),
-        // ...mapActions(
-        //     {add:'count/add'}
-        // )
         loginOut(){
             this.$store.commit('login/loginOut')
             this.$router.push('/login')
@@ -64,9 +61,6 @@ export default {
         toIndex(){
             this.$router.push('/index')
         },
-        // showCardDetail(){
-        //     this.$store.commit();
-        // }
     }
 }
 </script>
