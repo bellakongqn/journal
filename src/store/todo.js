@@ -3,35 +3,47 @@ const state={
 }
 
 const actions ={
-    addTodo({ commit },text) {
+    addTodo ({ commit }, text) {
         commit('addTodo', {
           text,
-          done: false,
-          id:Number(Math.random().toString().substr(3,length) + Date.now()).toString(36)
+          done: false
+        })
+    },
+    toggleAll ({ state, commit }, done) {
+        state.todoList.forEach((todo) => {
+          commit('toggleAll', { todo, done })
         })
     },
     toggleTodo ({ commit }, todo) {
-        //接口
-        // return axios.get('api',todo).then(res=>{
-        //     commit('toggleItem',res)
-        // })
-        commit('toggleItem', { todo, done: !todo.done })
+        commit('toggleAll', { todo, done: !todo.done })
     },
     removeTodo({ commit }, todo){
         commit('removeTodo', todo)
     },
+    editTodo ({ commit }, { todo, value }) {
+        commit('editTodo', { todo, text: value })
+    },
+    clearCompleted({ state , commit }){
+        state.todoList.filter(todo => todo.done)
+        .forEach(todo => {
+            commit('removeTodo', todo)
+        })
+    }
 }
 
 const mutations ={
     addTodo (state, todo) {
         state.todoList.push(todo)
     },
-    toggleItem (state, { todo, done }) {
+    toggleAll (state, { todo, done }) {
         todo.done = done
     },
     removeTodo(state, todo){
         state.todoList.splice(state.todoList.indexOf(todo), 1)
     },
+    editTodo(state, { todo , text}){
+        todo.text = text
+    }
 }
 
 const getters ={
