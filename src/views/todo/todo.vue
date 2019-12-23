@@ -14,7 +14,7 @@
                 type="checkbox"
                 :checked="allChecked"
                 @change="toggleAll(!allChecked)">
-            <label for="toggle-all"></label>
+            <!-- <label for="toggle-all"></label> -->
             <ul class="todo-list">
                 <TodoItem v-for="(todo, index) in filteredTodos"
                     :key="index"
